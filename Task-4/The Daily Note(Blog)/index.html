@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The Daily Note — thoughtful stories on design, technology, creativity, and everyday life." />
+  <title>The Daily Note — Stories worth your time</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap container">
+      <a class="brand" href="#" aria-label="The Daily Note home"><span class="brand-mark">d.</span><span>The Daily Note</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <a class="nav-link active" href="#home">Home</a>
+        <a class="nav-link" href="#latest">Articles</a>
+        <a class="nav-link" href="#categories">Categories</a>
+        <a class="nav-link" href="#about">About</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-button" id="themeToggle" aria-label="Switch to dark mode" title="Toggle dark mode"><span id="themeIcon">☾</span></button>
+        <a class="subscribe-button" href="#newsletter">Subscribe <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero container" id="home">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> IDEAS FOR A MORE CURIOUS LIFE</span>
+        <h1>Stories worth<br><em>your time.</em></h1>
+        <p>Thoughtful reads on design, technology, creativity, and the little things that make life interesting.</p>
+        <a class="text-link" href="#latest">Explore the latest <span aria-hidden="true">→</span></a>
+      </div>
+      <article class="featured-card" id="featuredCard" tabindex="0" aria-label="Featured article">
+        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=85" alt="Notebook and laptop on a desk" />
+        <div class="featured-overlay"></div>
+        <div class="featured-content">
+          <span class="pill pill-light">EDITOR'S PICK</span>
+          <p class="featured-category">CREATIVITY · 8 MIN READ</p>
+          <h2>Make room for the work that matters</h2>
+          <p class="featured-subtitle">A gentler approach to doing your best work.</p>
+          <button class="round-arrow" id="featuredRead" aria-label="Read featured article">↗</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="category-section container" id="categories">
+      <div class="section-heading compact-heading">
+        <div><span class="eyebrow">FIND YOUR NEXT READ</span><h2>Explore by topic</h2></div>
+      </div>
+      <div class="category-list" id="categoryList" aria-label="Filter by category">
+        <button class="category-chip selected" data-category="All">✳ All stories</button>
+        <button class="category-chip" data-category="Design">◈ Design</button>
+        <button class="category-chip" data-category="Technology">⌘ Technology</button>
+        <button class="category-chip" data-category="Lifestyle">☼ Lifestyle</button>
+        <button class="category-chip" data-category="Creativity">✎ Creativity</button>
+        <button class="category-chip" data-category="Career">↗ Career</button>
+      </div>
+    </section>
+
+    <section class="articles-section container" id="latest">
+      <div class="section-heading articles-heading">
+        <div><span class="eyebrow">THE JOURNAL</span><h2>Latest articles <span class="heading-period">.</span></h2></div>
+        <div class="search-wrap">
+          <span aria-hidden="true">⌕</span>
+          <input type="search" id="searchInput" placeholder="Search articles..." aria-label="Search articles" />
+          <kbd>↵</kbd>
+        </div>
+      </div>
+      <div class="active-filters" id="activeFilters" hidden></div>
+      <div class="article-grid" id="articleGrid" aria-live="polite"></div>
+      <div class="empty-state" id="emptyState" hidden>
+        <span>⌕</span><h3>No stories found</h3><p>Try a different keyword or category.</p>
+        <button class="outline-button" id="clearFilters">Clear filters</button>
+      </div>
+      <div class="load-more-wrap"><button class="load-more" id="loadMore">Load more stories <span>↓</span></button></div>
+    </section>
+
+    <section class="newsletter-section" id="newsletter">
+      <div class="newsletter-inner container">
+        <div class="newsletter-icon">✳</div>
+        <div class="newsletter-copy"><span class="eyebrow">A GOOD NOTE, NOW AND THEN</span><h2>Curiosity looks good on you.</h2><p>Get our best stories in your inbox. No noise, just thoughtful reads.</p></div>
+        <form class="newsletter-form" id="newsletterForm">
+          <label class="sr-only" for="emailInput">Email address</label>
+          <input id="emailInput" type="email" placeholder="Your email address" required />
+          <button type="submit">Join the list <span>→</span></button>
+          <p class="form-message" id="formMessage" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="about-section container" id="about">
+      <div class="about-mark">d.</div>
+      <div><span class="eyebrow">A LITTLE ABOUT US</span><h2>For people who like to <em>think a little deeper.</em></h2></div>
+      <p>The Daily Note is an independent journal for curious minds. We share useful ideas, honest perspectives, and fresh inspiration to help you work, create, and live with intention.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner container">
+      <a class="brand footer-brand" href="#"><span class="brand-mark">d.</span><span>The Daily Note</span></a>
+     <p> © <span id="year" style="text-align: center;">  </span></span> Pawan Yadav. All rights reserved.</p>
+      <div class="social-links"><a href="https://www.instagram.com/pawanyadav5912_/" aria-label="Instagram">ig</a><a href="https://www.linkedin.com/in/pawan-yadav-1696293a4/" aria-label="LinkedIn">in</a><a href="#latest" aria-label="X">𝕏</a></div>
+    </div>
+  </footer>
+
+  <div class="modal" id="articleModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <article class="modal-panel">
+      <button class="modal-close" id="modalClose" aria-label="Close article">×</button>
+      <img class="modal-image" id="modalImage" src="" alt="" />
+      <div class="modal-body">
+        <div class="article-meta"><span id="modalCategory"></span><span>·</span><span id="modalDate"></span><span>·</span><span id="modalReadTime"></span></div>
+        <h2 id="modalTitle"></h2>
+        <p class="modal-excerpt" id="modalExcerpt"></p>
+        <div class="tag-list" id="modalTags"></div>
+        <div class="article-body-copy" id="modalBody"></div>
+        <div class="article-tools">
+          <button class="outline-button" id="shareButton">↗ Share article</button>
+          <button class="outline-button" id="copyLinkButton">⧉ Copy article link</button>
+        </div>
+        <section class="comments-section">
+          <h3>Join the conversation</h3>
+          <p class="comment-note">Comments are saved in this browser for this demo.</p>
+          <form id="commentForm" class="comment-form">
+            <input id="commentName" type="text" placeholder="Your name" required maxlength="40" />
+            <textarea id="commentText" placeholder="Add a thoughtful comment..." required maxlength="500" rows="3"></textarea>
+            <button type="submit">Post comment</button>
+          </form>
+          <div id="commentsList" class="comments-list"></div>
+        </section>
+        <section class="related-section"><h3>You might also like</h3><div id="relatedArticles" class="related-grid"></div></section>
+      </div>
+    </article>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>

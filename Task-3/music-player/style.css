@@ -1,0 +1,132 @@
+:root { 
+    --accent: #4da3ff;
+ }
+body { 
+    min-height: 100vh; background: #0b0d14; color: #eef1f8; font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif; overflow-x: hidden;
+ }
+/* Blurred artwork of the current song glows behind the page */
+body::before { 
+    content: "";
+     position: fixed; 
+     inset: -40px;
+    z-index: -1; 
+    background: var(--art) center/cover; 
+    filter: blur(70px) saturate(1.4); 
+    opacity: .35; 
+    transition: opacity .6s;
+ }
+.glass {
+    background: rgba(255,255,255,.06); 
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 24px; 
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 10px 40px rgba(0,0,0,.35);
+     }
+.brand {
+    color: #fff; 
+    text-decoration: none; 
+    font-weight: 700; 
+    font-size: 1.2rem; 
+}
+ .brand i { 
+    color: var(--accent);
+ }
+.search {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    padding: 0 16px; 
+    border-radius: 40px; 
+}
+.search input {
+    flex: 1;
+    min-width: 0; 
+    background: none; 
+    border: 0; 
+    color: inherit;
+    padding: 11px 0; 
+    outline: none; 
+}
+.art { 
+    width: min(100%, 320px); 
+    aspect-ratio: 1; 
+    object-fit: cover; 
+    border-radius: 22px; 
+    box-shadow: 0 18px 50px rgba(0,0,0,.5); 
+    transition: transform .5s;
+ }
+.art.playing { 
+    transform: scale(1.04); 
+}
+.btn-icon, .play, .pill {
+     border: 0; 
+     color: inherit; background: none; 
+     cursor: pointer; transition: all .2s; 
+    }
+.btn-icon { 
+    width: 42px; 
+    height: 42px; 
+    border-radius: 50%; 
+    font-size: 1.15rem; 
+}
+ .btn-icon.lg { 
+    font-size: 1.7rem; width: 52px; height: 52px;
+ }
+.btn-icon:hover { 
+    background: rgba(255,255,255,.12);
+ } 
+ .btn-icon.on { 
+    color: var(--accent); 
+}
+.play {
+    width: 70px; height: 70px; 
+    border-radius: 50%; 
+    background: var(--accent);
+    color: #0b0d14; font-size: 2.2rem;
+    box-shadow: 0 8px 28px color-mix(in srgb, var(--accent) 55%, transparent);
+    }
+.play:hover {
+     transform: scale(1.07); 
+}
+
+.pill {
+     border: 1px solid rgba(255,255,255,.2); border-radius: 20px; padding: 6px 14px; font-size: .85rem; } .pill.on { background: var(--accent); color: #0b0d14; border-color: var(--accent); 
+    }
+.controls {
+    display: flex; 
+    justify-content: center;
+     align-items: center; 
+     gap: 6px; 
+     margin-top: 8px; 
+    }
+button:focus-visible, input:focus-visible, .track:focus-visible {
+     outline: 2px solid var(--accent); 
+     outline-offset: 2px; 
+    }
+input[type=range] {
+    -webkit-appearance: none; appearance: none;
+    width: 100%; height: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    background: linear-gradient(90deg, var(--accent) var(--pct, 0%), rgba(255,255,255,.18) var(--pct, 0%)); 
+        }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 15px; height: 15px; border-radius: 50%; background: #fff; }
+input[type=range]::-moz-range-thumb { width: 15px; height: 15px; border: 0; border-radius: 50%; background: #fff; }
+.tabs { display: flex; gap: 6px; overflow-x: auto; margin-bottom: 10px; }
+.tabs button { background: none; border: 0; color: #9aa3b8; padding: 8px 14px; border-radius: 20px; white-space: nowrap; }
+.tabs button.active { background: rgba(255,255,255,.12); color: #fff; }
+.track { display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: 14px; cursor: pointer; transition: background .15s; }
+.track:hover { background: rgba(255,255,255,.07); } .track.active { background: color-mix(in srgb, var(--accent) 22%, transparent); }
+.track img { width: 48px; height: 48px; border-radius: 10px; object-fit: cover; }
+.track .info { flex: 1; min-width: 0; display: flex; flex-direction: column; } .track strong, .track small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .track small, .dur { color: #9aa3b8; }
+.fav { border: 0; background: none; color: #9aa3b8; width: 38px; height: 38px; border-radius: 50%; } .fav.on { color: #ff5c7a; } .fav:hover { transform: scale(1.2); }
+.empty { padding: 30px 10px; text-align: center; color: #9aa3b8; }
+.footer-mark{
+    margin:10px 10px 10px 1px;
+    text-align: center;
+    padding-bottom:1px;
+
+}
+@media (max-width: 576px) { .controls .btn-icon.lg { width: 46px; } .play { width: 64px; height: 64px; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } .art.playing { transform: none; } }
