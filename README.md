@@ -50,7 +50,7 @@ A collection of responsive frontend projects built with HTML, CSS and JavaScript
 ## Author
 **Pawan Yadav**
 
-GitHub: [Your GitHub Profile URL](https://github.com/pawanyadavDev/Kashi-guesthousesite
+GitHub: https://github.com/pawanyadavDev/
 
 ## Internship
 Frontend Development Internship — CODSOFT
