@@ -5,7 +5,6 @@ This repository contains the projects I developed during my Frontend Development
 The purpose of these tasks is to improve my frontend development skills through practical projects.
 A collection of responsive frontend projects built with HTML, CSS and JavaScript. Each project lives in its own folder and runs in the browser with no backend.
 
-
 <CODESOFT_TASKSNO>/
 ├── Expense-Tracker/
 ├── Music-Player/
